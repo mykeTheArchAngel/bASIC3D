@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spinning 3D Cube</title>
+<style>
+    body {
+        background-color: #3d3f3d;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+    }
+
+    .cube {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: spin 5s infinite linear;
+    }
+
+    .face {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: rgba(0, 0, 0, 0.1);
+        border: 1px solid black;
+    }
+
+    .face:nth-child(1) { transform: translateZ(50px); background-color: #3e32dd; }
+    .face:nth-child(2) { transform: rotateY(90deg) translateZ(50px); background-color: #76abe1; }
+    .face:nth-child(3) { transform: rotateY(180deg) translateZ(50px); background-color: #a699cc; }
+    .face:nth-child(4) { transform: rotateY(-90deg) translateZ(50px); background-color: #c1bebf; }
+    .face:nth-child(5) { transform: rotateX(90deg) translateZ(50px); background-color: #3d3f3d; }
+    .face:nth-child(6) { transform: rotateX(-90deg) translateZ(50px); background-color: #7653c8; }
+
+    @keyframes spin {
+        from { transform: rotateX(0deg) rotateY(0deg); }
+        to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+</style>
+</head>
+<body>
+
+<div class="cube">
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+</div>
+
+</body>
+</html>
